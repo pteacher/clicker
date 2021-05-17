@@ -27,7 +27,7 @@
     <script>
         if (localStorage.name === undefined) {
             console.log(localStorage.name);
-            if (localStorage.name == "")
+            if (localStorage.name == "" || localStorage.name === undefined)
                 localStorage.name = prompt("Enter your name and surname", "");
         } else {
             console.log(localStorage.name);
