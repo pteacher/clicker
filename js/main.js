@@ -4,8 +4,6 @@ const app = new PIXI.Application({
     backgroundColor: 0x568EBF
 });
 
-document.body.appendChild(app.view);
-
 var frac = 0;
 var score = 0;
 
@@ -139,13 +137,19 @@ function onClick() {
 }
 
 function onSubmit() {
+    let current = new Date();
+    let cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
+    let cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+    let dateTime = cDate + ' ' + cTime;
+    let res = 0;
     if (frac == m) {
         score++;
+        res = 1;
     }
     else {
         score--;
     }
-    console.log("right");
+    writeNewResult(localStorage.name, dateTime, res);
     linesContainer.removeChildren();
     parts.removeChildren();
     n = Math.ceil(Math.random() * 10) + 2;
