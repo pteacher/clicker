@@ -25,7 +25,7 @@
 <body>
     <!--button onclick="(function () {document.body.appendChild(app.view);})();">FRACTIONS</button-->
     <script>
-        if (localStorage.name) {
+        if (localStorage.name === undefined) {
             console.log(localStorage.name);
         } else {
             console.log(localStorage.name);
