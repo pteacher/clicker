@@ -4,6 +4,8 @@ const app = new PIXI.Application({
     backgroundColor: 0x568EBF
 });
 
+document.body.appendChild(app.view);
+
 var frac = 0;
 var score = 0;
 
