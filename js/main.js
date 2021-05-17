@@ -149,7 +149,7 @@ function onSubmit() {
         res = 1;
     }
     else {
-        score--;
+        score = 0;
     }
     writeNewResult(localStorage.name, dateTime, res);
     linesContainer.removeChildren();
