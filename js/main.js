@@ -12,15 +12,15 @@ var score = 0;
 let n = Math.ceil(Math.random() * 10) + 2;
 let m = Math.ceil(Math.random() * (n - 1));
 
+const cookie = PIXI.Sprite.from("assets/cookie.png");
+const cookieClick = PIXI.Sprite.from("assets/cookie.png");
+
 let pane = new PIXI.Graphics();
 pane.beginFill(0xD99A4E);
 pane.lineStyle(2, 0x000000, 1);
 pane.drawRect(0, 0, app.screen.width, 68);
 pane.endFill();
 app.stage.addChild(pane);
-
-const cookie = PIXI.Sprite.from("assets/cookie.png");
-const cookieClick = PIXI.Sprite.from("assets/cookie.png");
 
 const scoreText = new PIXI.Text("0/20");
 scoreText.anchor.set(0.5)

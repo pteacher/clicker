@@ -12,8 +12,9 @@ var firebaseConfig = {
  
   var database = firebase.database();
   
-  function writeNewResult(name_r, date_r, result_r) {
+  function writeNewResult(game_r, name_r, date_r, result_r) {
     var postData = {
+      game: game_r,
       name: name_r,
       date: date_r,
       result: result_r
