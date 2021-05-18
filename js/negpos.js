@@ -29,7 +29,7 @@ let k = negpos.screen.width / n ;
 let h = negpos.screen.height * 0.5;
 let ans = 0;
 
-const problemText = new PIXI.Text(a + " + " + b + " + " + c + " = ?");
+const problemText = new PIXI.Text(a + " + " + b + " + " + c + " = " + ans);
 problemText.anchor.set(0.5);
 problemText.x = negpos.screen.width * 0.5;
 problemText.y = 35;
@@ -148,6 +148,7 @@ function onSubmit() {
     newTask();
     mover.zIndex = 999;
     mover.x = negpos.screen.width / 2 - 10;
-    problemText.text = a + " + " + b + " + " + c + " = ?";
+    ans = 0;
+    problemText.text = a + " + " + b + " + " + c + " = " + ans;
     scoreText.text = score + "/20";
 }
