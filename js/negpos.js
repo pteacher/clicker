@@ -25,8 +25,7 @@ let a = Math.ceil(Math.random() * 6) - 3;
 let b = Math.ceil(Math.random() * 6) - 3; 
 let c = Math.ceil(Math.random() * 6) - 3;
 let n = 20;
-let gap = 20
-let k = (negpos.screen.width - gap * 2) / n ;
+let k = negpos.screen.width / n ;
 let h = negpos.screen.height * 0.5;
 let ans = 0;
 
@@ -68,19 +67,19 @@ function newTask() {
 
     let arrow = new PIXI.Graphics();
     arrow.lineStyle(2, 0x000000, 1);
-    arrow.drawRect(gap, h, negpos.screen.width - gap * 2, 2);
+    arrow.drawRect(0, h, negpos.screen.width, 2);
     negpos.stage.addChild(arrow);
     
     for (let i = 1; i < n; i++) {
         if (i % 2 == 0) {
             let triangle = new PIXI.Graphics();
             triangle.lineStyle(2, 0x000000, 1);
-            triangle.drawRect(k * i + k, h - 15, 1, 30);
+            triangle.drawRect(k * i, h - 15, 1, 30);
             parts.addChild(triangle);
 
             const problemText = new PIXI.Text(i - (n / 2), {"fill": "#ffffff", "fontSize": 20});
             problemText.anchor.set(0.5);
-            problemText.x = k * i + k;
+            problemText.x = k * i;
             problemText.y = h + 40;
             parts.addChild(problemText);
         }
@@ -116,14 +115,14 @@ function onDragEnd() {
     this.alpha = 1;
     this.dragging = false;
     this.data = null;
-    ans = Math.floor(this.x / k) - 10;
-    problemText.text = a + " + " + b + " + " + c + " = " + (Math.floor(this.x / k) - 10);
+    ans = Math.floor(this.x / k) - 9;
+    problemText.text = a + " + " + b + " + " + c + " = " + ans;
 }
 
 function onDragMove() {
     if (this.dragging) {
         const newPosition = this.data.getLocalPosition(this.parent);
-        this.x = Math.round((newPosition.x) / k) * k - k / 2;
+        this.x = Math.round((newPosition.x) / k) * k - this.width / 2;
         
     }
 }
